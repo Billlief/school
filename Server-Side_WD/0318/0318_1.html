@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .straight_container{
+            display: flex;
+            flex-direction: column;
+            width: 100px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="straight_container">
+        <input type="text" name="score">
+        <input type="text" name="score">
+        <input type="text" name="score">
+        <input type="text" name="score">
+        <input type="text" name="score">
+        <input type="text" name="score">
+        <input type="text" name="score">
+        <input type="text" name="score">
+        <input type="text" name="score">
+        <input type="text" name="score">
+        <p>平均： <span id="aver"></span></p>
+        <button id="do">do</button>
+    </div>
+    
+    
+    
+    <script>
+        window.onload = function(){
+            document.getElementById('do').onclick = function(){
+                const score = document.getElementsByName('score');
+                let scoreValue = new Array();
+                for (let i = 0 ; i < score.length ; i++){
+                    scoreValue[i] = score[i].value;
+                    
+                }
+                let sum = 0;
+                for (let i = 0 ; i < scoreValue.length ; i++){
+                    sum += parseInt(scoreValue[i]);
+                }
+                const aver = (sum / parseInt(scoreValue.length)).toFixed(2)
+                document.getElementById('aver').innerHTML = aver;
+            }
+            
+        }
+    </script>
+</body>
+</html>
