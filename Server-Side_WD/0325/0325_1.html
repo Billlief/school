@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    window.onload = function(){
+        document.getElementById('do').onclick =function(){
+            const genderValue = document.getElementsByName('gender');
+            for (let i = 0 ; i < genderValue.length ; i++){
+                if (genderValue[i].checked){
+                    console.log(genderValue[i].value)
+                    break;
+                }
+            }
+        }
+    }
+</script>
+<body>
+    性別：<input type="radio" name='gender' value="male">Man
+    <input type="radio" name="gender" value="female">Woman <br> 
+    <button id="do">do</button>
+</body>
+</html>

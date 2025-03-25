@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function getRadioValue(radioName){
+                for (let i = 0 ; i < radioName.length ; i++){
+                    if (radioName[i].checked){
+                        return radioName[i].value;
+                    }
+                }
+            }
+    window.onload = function(){
+        document.getElementById('do').onclick =function(){
+
+            const nameValue = document.getElementById('name').value;
+
+            let genderValue = getRadioValue(document.getElementsByName('gender'));
+            
+            let levelValue = getRadioValue(document.getElementsByName('level'));
+
+            if (levelValue == 1){
+                levelValue = '金卡'
+            }else if (levelValue == 2){
+                levelValue = '銀卡'
+            }else if (levelValue == 3){
+                levelValue = '至尊卡'
+            }
+            if (genderValue == "male"){
+                genderValue = '先生'
+            }else
+                genderValue = '女士'
+
+            const str = nameValue + genderValue + levelValue
+
+            document.getElementById('ms').innerHTML = str
+            
+            }
+        }
+</script>
+<body>
+    姓名：<input type="text" id="name" value="rex"><br>
+    性別：<input type="radio" name='gender' value="male">Man<input type="radio" name="gender" value="female">Woman <br> 
+    會員級別：<input type="radio" name='level' value="1">金卡<input type="radio" name="level" value="2">銀卡
+    <input type="radio" name="level" value="3">至尊卡 <br>
+    <button id="do">do</button>
+    <span id="ms"></span>
+</body>
+</html>
